@@ -5,7 +5,7 @@ using UnityEngine;
 
 namespace WORLDGAMEDEVELOPMENT
 {
-    public sealed class LevelObjectView : MonoBehaviour
+    public class LevelObjectView : MonoBehaviour
     {
         [SerializeField] private Transform _transform;
         [SerializeField] private SpriteRenderer _spriteRenderer;
