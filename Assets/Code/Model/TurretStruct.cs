@@ -7,6 +7,6 @@ namespace WORLDGAMEDEVELOPMENT
     [Serializable]
     public struct TurretStruct
     {
-        public Transform SpawnTurret;
+        public GameObject SpawnTurret;
     }
 }

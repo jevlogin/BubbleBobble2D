@@ -5,33 +5,33 @@ namespace WORLDGAMEDEVELOPMENT
 {
     internal class TurretFactory
     {
-        private TurretData _turretData;
+        private readonly TurretData _turretData;
         private TurretModel _turretModel;
 
-        public TurretFactory(TurretData turretData)
+        public TurretFactory(TurretData data)
         {
-           _turretData = turretData;
+            _turretData = data;
         }
 
         public TurretModel CreateTurretModel()
         {
             if (_turretModel == null)
             {
-                var turretComponents = _turretData.TurretComponents;
-                var turretSettings = _turretData.TurretSettingsData;
 
-                var spawnTurret = Object.Instantiate(_turretData.TurretComponents.TurretView);
+                var turretStruct = _turretData.TurretStruct;
+                var turretComponents = new TurretComponents();
 
-              
+                turretComponents.TurretView = Object.Instantiate(turretStruct.SpawnTurret).GetComponent<TurretView>();
 
-                //components
-                turretComponents.TurretView = spawnTurret;
-                turretComponents.TransformTurret = spawnTurret.TransformTurret;
-                turretComponents.TransformBurrel = spawnTurret.GunBurrel;
+                turretComponents.TransformTurret = turretComponents.TurretView.TransformTurret;
+                turretComponents.TransformBurrel = turretComponents.TurretView.GunBurrel;
 
-                //settings
 
-                _turretModel = new TurretModel(turretComponents, turretSettings);
+                var turretSettings = new TurretSettingsData();
+                turretSettings.AngleMax = _turretData.TurretSettingsData.AngleMax;
+                turretSettings.AngleMin = _turretData.TurretSettingsData.AngleMin;
+
+                _turretModel = new TurretModel(turretStruct, turretComponents, turretSettings);
             }
 
             return _turretModel;

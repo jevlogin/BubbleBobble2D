@@ -4,5 +4,6 @@ namespace WORLDGAMEDEVELOPMENT
     {
         public const string VERTICAL = "Vertical";
         public const string HORIZONTAL = "Horizontal";
+        public const string JUMP = "Jump";
     }
 }

@@ -2,6 +2,6 @@
 {
     public interface ILateExecute : IController
     {
-        void LateExecute();
+        void LateExecute(float fixedDeltaTime);
     }
 }

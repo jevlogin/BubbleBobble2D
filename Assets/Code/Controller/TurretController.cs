@@ -3,7 +3,7 @@ using UnityEngine;
 
 namespace WORLDGAMEDEVELOPMENT
 {
-    public sealed class TurretController
+    public sealed class TurretController : IFixedExecute
     {
         #region Fields
 

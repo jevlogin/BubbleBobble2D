@@ -1,21 +1,23 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.IO;
 using UnityEngine;
-
+using UnityEngine.PlayerLoop;
 
 namespace WORLDGAMEDEVELOPMENT
 {
-    public sealed class MainController : MonoBehaviour
+    public sealed class MainController : MonoBehaviour, IDisposable
     {
+        //TODO - refactor the fields later. I know it's not very good code. This is an incomprehensible code)) But, this is my fantastic code =)
         private Camera _camera;
         [SerializeField] private LevelObjectView _playerView;
-        private SpriteAnimator _playerAnimator;
+        private SpriteAnimatorController _playerAnimator;
         private PlayerController _playerController;
         private TurretController _turretController;
         private GunBulletShooterController _gunBulletShooterController;
 
-        private Controller _controller;
+        private Controllers _controllers;
 
         private Data _data;
         [SerializeField] private string _dataPath;
@@ -25,10 +27,11 @@ namespace WORLDGAMEDEVELOPMENT
             _data = Resources.Load<Data>(Path.Combine(ManagerPath.DATA, ManagerPath.DATA));
             if (_data == null) _data = Resources.Load<Data>(_dataPath);
 
-            _controller = new Controller();
+            _controllers = new Controllers();
 
             #region Camera
 
+            //TODO - later updated. Navigation move to player
             _camera = Camera.main;
 
             #endregion
@@ -36,9 +39,18 @@ namespace WORLDGAMEDEVELOPMENT
 
             #region Player
 
+
             SpriteAnimatorConfig playerConfig = Resources.Load<SpriteAnimatorConfig>("Data/Player/PlayerSpriteAnimatorConfig");
-            _playerAnimator = new SpriteAnimator(playerConfig);
-            _playerController = new PlayerController(_playerView, _playerAnimator);
+            _playerAnimator = new SpriteAnimatorController(playerConfig);
+            _controllers.Add(_playerAnimator);
+
+            //TODO - later added to _controllers.
+
+            var contactPollerPlayer = new ContactPoller(_playerView.Collider2D);
+            _controllers.Add(contactPollerPlayer);
+
+            _playerController = new PlayerController(_playerView, _playerAnimator, contactPollerPlayer);
+            _controllers.Add(_playerController);
 
             #endregion
 
@@ -48,15 +60,24 @@ namespace WORLDGAMEDEVELOPMENT
             var turretFactory = new TurretFactory(_data.TurretData);
             var turretInitialization = new TurretInitialization(turretFactory);
             _turretController = new TurretController(_playerView.Transform, turretInitialization.TurretModel);
+            _controllers.Add(_turretController);
 
-            //TODO - отрефакторить
-            var poolBullet = new Pool<BulletView>(10, ManagerPath.BULLET);
+            //TODO - later refactoring
+            var poolBullet = new Pool<BulletView>(10, Path.Combine(ManagerPath.PREFABS, ManagerPath.BULLET, ManagerPath.BULLET));
             var bulletPool = new BulletPool(poolBullet,
                 turretInitialization.TurretModel.TurretComponents.TransformBurrel);
             var bulletInitialization = new BulletInitialization(bulletPool);
 
             _gunBulletShooterController = new GunBulletShooterController(bulletInitialization,
                 turretInitialization.TurretModel.TurretComponents.TransformBurrel);
+            _controllers.Add(_gunBulletShooterController);
+
+            #endregion
+
+
+            #region ContactPoler
+
+            //var contactPoler = new ContactPoller();
 
 
             #endregion
@@ -64,14 +85,17 @@ namespace WORLDGAMEDEVELOPMENT
 
         private void Update()
         {
-            _playerAnimator.Update();
-            _playerController.Update();
-            _gunBulletShooterController.Execute(Time.deltaTime);
+            _controllers.Execute(Time.deltaTime);
         }
 
         private void FixedUpdate()
         {
-            _turretController.FixedExecute(Time.fixedDeltaTime);
+            _controllers.FixedExecute(Time.fixedDeltaTime);
+        }
+
+        public void Dispose()
+        {
+            _controllers.Cleanup();
         }
     }
 }

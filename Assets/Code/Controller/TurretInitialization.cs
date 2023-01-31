@@ -3,9 +3,7 @@
     internal class TurretInitialization
     {
         public TurretModel TurretModel;
-
         private readonly TurretFactory _turretFactory;
-
 
         public TurretInitialization(TurretFactory turretFactory)
         {

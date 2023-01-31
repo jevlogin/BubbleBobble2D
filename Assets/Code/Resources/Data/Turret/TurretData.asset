@@ -12,6 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 028f4db574f70134a8626aec8a579d71, type: 3}
   m_Name: TurretData
   m_EditorClassIdentifier: 
+  TurretStruct:
+    SpawnTurret: {fileID: 3711969749425063694, guid: 5270bbec8ebebf24c8645f1e2a442abb, type: 3}
   TurretComponents:
     TransformTurret: {fileID: 0}
     TransformBurrel: {fileID: 0}

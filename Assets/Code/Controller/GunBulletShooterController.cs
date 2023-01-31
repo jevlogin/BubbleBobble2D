@@ -3,7 +3,7 @@ using UnityEngine;
 
 namespace WORLDGAMEDEVELOPMENT
 {
-    internal class GunBulletShooterController
+    internal class GunBulletShooterController : IExecute
     {
         #region Fields
 

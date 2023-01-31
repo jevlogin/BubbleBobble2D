@@ -7,7 +7,7 @@ using UnityEngine;
 
 namespace WORLDGAMEDEVELOPMENT
 {
-    public sealed class SpriteAnimator : IDisposable
+    public sealed class SpriteAnimatorController : IExecute, ICleanup
     {
         private sealed class Animation
         {
@@ -46,7 +46,7 @@ namespace WORLDGAMEDEVELOPMENT
 
         private Dictionary<SpriteRenderer, Animation> _activeAnimations = new Dictionary<SpriteRenderer, Animation>();
 
-        public SpriteAnimator(SpriteAnimatorConfig config)
+        public SpriteAnimatorController(SpriteAnimatorConfig config)
         {
             _config = config;
         }
@@ -86,7 +86,7 @@ namespace WORLDGAMEDEVELOPMENT
             }
         }
 
-        public void Update()
+        public void Execute(float deltaTime)
         {
             foreach (var animation in _activeAnimations)
             {
@@ -98,7 +98,7 @@ namespace WORLDGAMEDEVELOPMENT
             }
         }
 
-        public void Dispose()
+        public void Cleanup()
         {
             _activeAnimations.Clear();
         }

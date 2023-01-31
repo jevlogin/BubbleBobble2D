@@ -105,7 +105,7 @@ MonoBehaviour:
   SpriteRenderer: {fileID: 697251087210589099}
   Velocity: {x: 0, y: 0, z: 0}
   DamageAttack: 10
-  LifeTime: 1
+  LifeTime: 0.3
   _trailRenderer: {fileID: 697251087210589079}
 --- !u!50 &697251087210589077
 Rigidbody2D:
@@ -186,7 +186,7 @@ TrailRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Time: 5
+  m_Time: 0.3
   m_Parameters:
     serializedVersion: 3
     widthMultiplier: 1
@@ -194,21 +194,30 @@ TrailRenderer:
       serializedVersion: 2
       m_Curve:
       - serializedVersion: 3
-        time: 0.21135029
-        value: 0.59420323
-        inSlope: 0
-        outSlope: 0
+        time: 0
+        value: 0.8043459
+        inSlope: 0.4385431
+        outSlope: 0.4385431
         tangentMode: 0
         weightedMode: 0
         inWeight: 0.33333334
-        outWeight: 0.33333334
+        outWeight: 0.34700316
+      - serializedVersion: 3
+        time: 1
+        value: 0.21014845
+        inSlope: 0.13884194
+        outSlope: 0.13884194
+        tangentMode: 0
+        weightedMode: 0
+        inWeight: 0.5741325
+        outWeight: 0
       m_PreInfinity: 2
       m_PostInfinity: 2
       m_RotationOrder: 4
     colorGradient:
       serializedVersion: 2
-      key0: {r: 0.8962264, g: 0.6210603, b: 0.2240566, a: 1}
-      key1: {r: 1, g: 1, b: 1, a: 1}
+      key0: {r: 1, g: 0.1512787, b: 0.0047169924, a: 1}
+      key1: {r: 0.9811321, g: 0.89236104, b: 0.5784977, a: 1}
       key2: {r: 0, g: 0, b: 0, a: 0}
       key3: {r: 0, g: 0, b: 0, a: 0}
       key4: {r: 0, g: 0, b: 0, a: 0}
