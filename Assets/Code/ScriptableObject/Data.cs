@@ -1,5 +1,6 @@
 using System.IO;
 using UnityEngine;
+using static UnityEditor.Progress;
 
 
 namespace WORLDGAMEDEVELOPMENT
@@ -10,8 +11,10 @@ namespace WORLDGAMEDEVELOPMENT
         #region Fields
 
         [SerializeField] private string _turrretDataPath;
+        [SerializeField] private string _coinsDataPath;
 
         private TurretData _turretData;
+        private CoinsData _coinsData;
 
         #endregion
 
@@ -31,5 +34,23 @@ namespace WORLDGAMEDEVELOPMENT
                 return _turretData;
             }
         }
+
+        public CoinsData CoinsData
+        {
+            get
+            {
+                if (_coinsData == null)
+                {
+                    _coinsData = Resources.Load<CoinsData>(
+                        Path.Combine(ManagerPath.DATA, ManagerPath.ITEMS, 
+                        ManagerPath.COINS, ManagerPath.COINSDATA));
+                    if (_coinsData == null)
+                        _coinsData = Resources.Load<CoinsData>(_coinsDataPath);
+                }
+                return _coinsData;
+            }
+        }
+
+
     }
 }

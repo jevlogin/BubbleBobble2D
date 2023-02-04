@@ -1,9 +1,7 @@
 using System;
-using System.Collections;
-using System.Collections.Generic;
 using System.IO;
 using UnityEngine;
-using UnityEngine.PlayerLoop;
+
 
 namespace WORLDGAMEDEVELOPMENT
 {
@@ -46,7 +44,7 @@ namespace WORLDGAMEDEVELOPMENT
 
             //TODO - later added to _controllers.
 
-            var contactPollerPlayer = new ContactPoller(_playerView.Collider2D);
+            var contactPollerPlayer = new ContactsPoller(_playerView.Collider2D);
             _controllers.Add(contactPollerPlayer);
 
             _playerController = new PlayerController(_playerView, _playerAnimator, contactPollerPlayer);
@@ -75,10 +73,18 @@ namespace WORLDGAMEDEVELOPMENT
             #endregion
 
 
-            #region ContactPoler
+            #region Coins
 
-            //var contactPoler = new ContactPoller();
+            var coinsFactory = new CoinsFactory(_data.CoinsData);
+            var coinsInitialization = new CoinsInitialization(coinsFactory);
 
+            var coinsSpriteAnimatorController = 
+                new SpriteAnimatorController(coinsInitialization.CoinsModels.CoinsSettings.SpriteAnimatorConfig);
+            _controllers.Add(coinsSpriteAnimatorController);
+
+            coinsSpriteAnimatorController.StartAnimation(
+                            coinsInitialization.CoinsModels.CoinsComponents.CoinView.SpriteRenderer, 
+                                        AnimState.Run, true, 10);
 
             #endregion
         }

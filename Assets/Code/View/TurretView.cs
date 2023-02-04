@@ -1,6 +1,5 @@
 using System;
 using UnityEngine;
-using static UnityEngine.GraphicsBuffer;
 
 
 namespace WORLDGAMEDEVELOPMENT
@@ -33,12 +32,6 @@ namespace WORLDGAMEDEVELOPMENT
 
             if (_gunBurrel == null)
                 _gunBurrel = transform.GetChild(1);
-        }
-
-
-        private void Update()
-        {
-
         }
 
         #endregion
