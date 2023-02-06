@@ -6,6 +6,8 @@ namespace WORLDGAMEDEVELOPMENT
         public const string ITEMS = "Items";
         public const string COINS = "Coins";
         public const string COINSDATA = "CoinsData";
+        public const string SPAWN = "Spawn";
+        public const string SPAWNDATA = "SpawnData";
         public const string SPRITEANIMATORCONFIG = "SpriteAnimatorConfig";
         public const string PREFABS = "Prefabs";
         public const string TURRET = "Turret";

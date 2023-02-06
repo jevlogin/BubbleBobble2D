@@ -9,9 +9,8 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c236b112873fc9d48b2f17afaa67dcca, type: 3}
-  m_Name: Data
+  m_Script: {fileID: 11500000, guid: 9db3bc5c441d128429b18bc6aae795ed, type: 3}
+  m_Name: SpawnData
   m_EditorClassIdentifier: 
-  _turrretDataPath: Data/Turret/TurretData
-  _coinsDataPath: Data/Items/Coins/CoinsData
-  _spawnDataPath: Data/Spawn/SpawnData
+  SpawnStruct:
+    Prefab: {fileID: 786597761680439476, guid: 3bf5ffce57dc9434bb02749cec59b543, type: 3}

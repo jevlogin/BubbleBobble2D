@@ -7,7 +7,7 @@ namespace WORLDGAMEDEVELOPMENT
     {
         #region Fields
 
-        private readonly LevelObjectView _playerView;
+        private readonly PlayerView _playerView;
         private readonly SpriteAnimatorController _playerAnimator;
 
         private readonly Vector3 _leftScale = new(-1.0f, 1.0f, 1.0f);
@@ -22,7 +22,6 @@ namespace WORLDGAMEDEVELOPMENT
         private const float _groundLevel = 0.5f;
         private const float _g = -9.8f;
 
-        private float _yVelocity = 0.0f;
         private bool _doJump;
         private float _xAxisInput;
 
@@ -33,7 +32,7 @@ namespace WORLDGAMEDEVELOPMENT
 
         #region ClassLifeCycle
 
-        public PlayerController(LevelObjectView playerView, SpriteAnimatorController playerAnimator,
+        public PlayerController(PlayerView playerView, SpriteAnimatorController playerAnimator,
             ContactsPoller contactPoller)
         {
             _playerView = playerView;
@@ -58,22 +57,22 @@ namespace WORLDGAMEDEVELOPMENT
                 _playerView.transform.localScale = (newVelocity > 0 ? _leftScale : _rightScale);
             }
 
-            _playerView.RidgidBody2D.velocity = _playerView.RidgidBody2D.velocity.Change(x: newVelocity);
+            _playerView.Rigidbody2DPlayer.velocity = _playerView.Rigidbody2DPlayer.velocity.Change(x: newVelocity);
 
 
-            if (_contactPoller.IsGrounded && _doJump && Mathf.Abs(_playerView.RidgidBody2D.velocity.y) <= _jumpTresh)
+            if (_contactPoller.IsGrounded && _doJump && Mathf.Abs(_playerView.Rigidbody2DPlayer.velocity.y) <= _jumpTresh)
             {
-                _playerView.RidgidBody2D.AddForce(Vector2.up * _jumpForce, ForceMode2D.Impulse);
+                _playerView.Rigidbody2DPlayer.AddForce(Vector2.up * _jumpForce, ForceMode2D.Impulse);
             }
 
             if (_contactPoller.IsGrounded)
             {
-                _playerAnimator.StartAnimation(_playerView.SpriteRenderer,
+                _playerAnimator.StartAnimation(_playerView.SpriteRendererPlayer,
                         walks ? AnimState.Run : AnimState.Iddle, true, _animationSpeed);
             }
-            else if (MathF.Abs(_playerView.RidgidBody2D.velocity.y) > _flyTresh)
+            else if (MathF.Abs(_playerView.Rigidbody2DPlayer.velocity.y) > _flyTresh)
             {
-                _playerAnimator.StartAnimation(_playerView.SpriteRenderer,
+                _playerAnimator.StartAnimation(_playerView.SpriteRendererPlayer,
                        AnimState.Jump, true, _animationSpeed);
             }
         }

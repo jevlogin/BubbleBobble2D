@@ -12,11 +12,32 @@ namespace WORLDGAMEDEVELOPMENT
 
         [SerializeField] private string _turrretDataPath;
         [SerializeField] private string _coinsDataPath;
+        [SerializeField] private string _spawnDataPath;
 
         private TurretData _turretData;
         private CoinsData _coinsData;
+        private SpawnData _spawnData;
 
         #endregion
+
+
+        public SpawnData SpawnData
+        {
+            get
+            {
+                if (_spawnData == null)
+                {
+                    _spawnData = Resources.Load<SpawnData>(
+                        Path.Combine(ManagerPath.DATA, ManagerPath.SPAWN, ManagerPath.SPAWNDATA));
+                    if (_spawnData == null)
+                    {
+                        _spawnData = Resources.Load<SpawnData>(_spawnDataPath);
+                    }
+                }
+                return _spawnData;
+            }
+        }
+
 
 
         public TurretData TurretData
@@ -51,6 +72,6 @@ namespace WORLDGAMEDEVELOPMENT
             }
         }
 
-
+        
     }
 }
