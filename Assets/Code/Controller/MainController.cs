@@ -8,10 +8,7 @@ namespace WORLDGAMEDEVELOPMENT
 {
     public sealed class MainController : MonoBehaviour, IDisposable
     {
-        //TODO - refactor the fields later. I know it's not very good code.
-        //This is an incomprehensible code)) But, this is my fantastic code =)
-
-        private Camera _camera;
+        [SerializeField] private Camera _camera;
         [SerializeField] private PlayerView _playerView;
         private SpriteAnimatorController _playerAnimator;
         private PlayerController _playerController;
@@ -32,14 +29,15 @@ namespace WORLDGAMEDEVELOPMENT
 
             #region Camera
 
-            //TODO - later updated. Navigation move to player
-            _camera = Camera.main;
+            if (_camera == null)
+                _camera = Camera.main; 
+            var cameraController = new CameraController(_camera, _playerView.TransformPlayer);
+            _controllers.Add(cameraController);
 
             #endregion
 
 
             #region Player
-
 
             SpriteAnimatorConfig playerConfig = Resources.Load<SpriteAnimatorConfig>("Data/Player/PlayerSpriteAnimatorConfig");
             _playerAnimator = new SpriteAnimatorController(playerConfig);
@@ -83,6 +81,21 @@ namespace WORLDGAMEDEVELOPMENT
 
             #endregion
 
+            
+            #region LevelManager
+            
+            //var levelManager = new LevelManager(_data.LevelData); 
+
+            #endregion
+
+
+            #region Enemy
+
+            var enemyFactory = new EnemyFactory(_data.EnemyData);
+            var enemyInitialization = new EnemyInitialization(enemyFactory);
+            enemyInitialization.CreateEnemyModelStage(Level.One);
+
+            #endregion
 
 
             #region Coins
@@ -97,22 +110,20 @@ namespace WORLDGAMEDEVELOPMENT
                     new SpriteAnimatorController(coinsInitialization.CoinsModels.FirstOrDefault().CoinsSettings.SpriteAnimatorConfig);
             _controllers.Add(coinsSpriteAnimatorController);
 
-
-            foreach (var coins in coinsInitialization.CoinsModels)
-            {
-                coinsSpriteAnimatorController.StartAnimation(
-                            coins.CoinsComponents.CoinView.SpriteRenderer,
-                                        AnimState.Run, true, 10);
-            }
-
-
             var coinsManager = new CoinsController(coinsSpriteAnimatorController, coinsInitialization.CoinsModels);
             _controllers.Add(coinsManager);
 
+            #endregion
 
-            //---------------------------------------------------
+
+            #region Chest
+
+            var presentFactory = new PresentFactory(_data.PresentData);
+            var presentInitialization = new PresentInitialization(presentFactory);
 
             #endregion
+
+
         }
 
 
@@ -126,6 +137,11 @@ namespace WORLDGAMEDEVELOPMENT
         private void FixedUpdate()
         {
             _controllers.FixedExecute(Time.fixedDeltaTime);
+        }
+
+        private void LateUpdate()
+        {
+            _controllers.LateExecute(Time.fixedDeltaTime);
         }
 
         #endregion

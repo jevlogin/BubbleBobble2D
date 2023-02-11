@@ -1,3 +1,4 @@
+using System;
 using Unity.VisualScripting;
 using UnityEngine;
 
@@ -12,6 +13,8 @@ namespace WORLDGAMEDEVELOPMENT
         [SerializeField] private Rigidbody2D _rigidbody2DPlayer;
         [SerializeField] private Transform _transformPlayer;
         [SerializeField] private SpriteRenderer _spriteRendererPlayer;
+
+        [SerializeField] private int Coins = 0;
 
         #endregion
 
@@ -71,5 +74,14 @@ namespace WORLDGAMEDEVELOPMENT
         }
 
         #endregion
+
+
+        private void OnTriggerEnter2D(Collider2D collision)
+        {
+            if (collision.TryGetComponent<CoinView>(out var coin))
+            {
+                Coins++;
+            }
+        }
     }
 }

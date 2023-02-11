@@ -13,10 +13,14 @@ namespace WORLDGAMEDEVELOPMENT
         public event Action<Collider2D> ColliderDetectChange;
         public event Action<SpriteRenderer> SpriteRendererDetectChange;
 
+
         private void OnTriggerEnter2D(Collider2D collision)
         {
-            ColliderDetectChange?.Invoke(_collider2D);
-            SpriteRendererDetectChange?.Invoke(_spriteRenderer);
+            if (collision.TryGetComponent<PlayerView>(out var playerView))
+            {
+                ColliderDetectChange?.Invoke(_collider2D);
+                SpriteRendererDetectChange?.Invoke(_spriteRenderer);
+            }
         }
 
         public SpriteRenderer SpriteRenderer

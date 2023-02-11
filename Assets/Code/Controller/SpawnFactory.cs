@@ -3,7 +3,7 @@
 
 namespace WORLDGAMEDEVELOPMENT
 {
-    internal class SpawnFactory
+    public sealed class SpawnFactory
     {
         private readonly SpawnData _spawnData;
         private SpawnModel _spawnModel;

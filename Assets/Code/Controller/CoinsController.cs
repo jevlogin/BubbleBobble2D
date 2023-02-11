@@ -21,8 +21,17 @@ namespace WORLDGAMEDEVELOPMENT
         {
             _coinsSpriteAnimatorController = coinsSpriteAnimatorController;
             _coinsModels = coinsModels;
+            StartAnimationAllCoins();
+            SubscrubeAllCoins();
+        }
+
+        #endregion
 
 
+        #region Methods
+        
+        private void SubscrubeAllCoins()
+        {
             foreach (var coins in _coinsModels)
             {
                 coins.CoinsComponents.CoinView.ColliderDetectChange += CoinView_ColliderDetectChange;
@@ -30,7 +39,18 @@ namespace WORLDGAMEDEVELOPMENT
             }
         }
 
+        private void StartAnimationAllCoins()
+        {
+            foreach (var coins in _coinsModels)
+            {
+                _coinsSpriteAnimatorController.StartAnimation(
+                            coins.CoinsComponents.CoinView.SpriteRenderer,
+                                        AnimState.Run, true, 10.0f);
+            }
+        } 
+
         #endregion
+
 
 
         #region Methods

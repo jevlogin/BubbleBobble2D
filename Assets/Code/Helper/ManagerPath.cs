@@ -3,7 +3,10 @@ namespace WORLDGAMEDEVELOPMENT
     public static class ManagerPath 
     {
         public const string DATA = "Data";
+        public const string ENEMY = "Enemy";
+        public const string ENEMYDATA = "EnemyData";
         public const string ITEMS = "Items";
+        public const string PRESENT = "Present";
         public const string COINS = "Coins";
         public const string COINSDATA = "CoinsData";
         public const string SPAWN = "Spawn";

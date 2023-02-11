@@ -1,6 +1,6 @@
 ﻿namespace WORLDGAMEDEVELOPMENT
 {
-    internal class SpawnInitialization
+    public sealed class SpawnInitialization
     {
         private readonly SpawnFactory _spawnFactory;
         public SpawnModel SpawnModel;

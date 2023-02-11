@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5659898138816601682}
   - component: {fileID: 3469455524869818633}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Column (18)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -94,7 +94,7 @@ GameObject:
   m_Component:
   - component: {fileID: 105903910187446803}
   - component: {fileID: 5509913932579427396}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Column (14)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -178,7 +178,7 @@ GameObject:
   m_Component:
   - component: {fileID: 627838517459855434}
   - component: {fileID: 5041599754904389589}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Column (3)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -262,7 +262,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4608051719616957032}
   - component: {fileID: 8127456757507110506}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Column (10)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -346,7 +346,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5085666875717795942}
   - component: {fileID: 3393266311188974556}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Column (13)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -430,7 +430,7 @@ GameObject:
   m_Component:
   - component: {fileID: 273504512341994791}
   - component: {fileID: 5414758847863903349}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Column (9)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -514,7 +514,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2404871132734708886}
   - component: {fileID: 7387324461474699369}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Column (15)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -598,7 +598,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1012713705946369899}
   - component: {fileID: 4729189551580529266}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Column (12)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -682,7 +682,7 @@ GameObject:
   m_Component:
   - component: {fileID: 6529763712476972884}
   - component: {fileID: 9071069470319815769}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Column (5)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -766,7 +766,7 @@ GameObject:
   m_Component:
   - component: {fileID: 6772431835349122248}
   - component: {fileID: 7585068129959963190}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Column
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -850,7 +850,7 @@ GameObject:
   m_Component:
   - component: {fileID: 8031013842025231208}
   - component: {fileID: 5576713543759536221}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Column (11)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -934,7 +934,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2545315631808479975}
   - component: {fileID: 3786632961555835299}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Column (2)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1017,7 +1017,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3909557358467239992}
-  m_Layer: 0
+  - component: {fileID: 4559173863714976678}
+  m_Layer: 6
   m_Name: VerticalColumn
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1060,6 +1061,32 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!61 &4559173863714976678
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4876154021392542147}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: -10}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0, y: 0}
+    oldSize: {x: 0, y: 0}
+    newSize: {x: 0, y: 0}
+    adaptiveTilingThreshold: 0
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 1, y: 21}
+  m_EdgeRadius: 0
 --- !u!1 &5112051445223888344
 GameObject:
   m_ObjectHideFlags: 0
@@ -1070,7 +1097,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2161103974081646488}
   - component: {fileID: 204224463824384454}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Column (4)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1154,7 +1181,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4094955506279011045}
   - component: {fileID: 8565614094839265484}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: column_down
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1238,7 +1265,7 @@ GameObject:
   m_Component:
   - component: {fileID: 6455931548519449479}
   - component: {fileID: 3399635505673154217}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Column (6)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1322,7 +1349,7 @@ GameObject:
   m_Component:
   - component: {fileID: 8306205406273466595}
   - component: {fileID: 6195780277014808067}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Column (17)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1406,7 +1433,7 @@ GameObject:
   m_Component:
   - component: {fileID: 8412856131100435477}
   - component: {fileID: 2425782003925152136}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Column (8)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1490,7 +1517,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1868945324068218668}
   - component: {fileID: 7639902159485948901}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Column (7)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1574,7 +1601,7 @@ GameObject:
   m_Component:
   - component: {fileID: 6949556548709013291}
   - component: {fileID: 6678452571111928518}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Column (16)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1658,7 +1685,7 @@ GameObject:
   m_Component:
   - component: {fileID: 8904825855558789489}
   - component: {fileID: 6826358616825361724}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: column_up
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1742,7 +1769,7 @@ GameObject:
   m_Component:
   - component: {fileID: 8894176785804365392}
   - component: {fileID: 2093313736818934339}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Column (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}

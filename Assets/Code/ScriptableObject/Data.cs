@@ -1,6 +1,5 @@
 using System.IO;
 using UnityEngine;
-using static UnityEditor.Progress;
 
 
 namespace WORLDGAMEDEVELOPMENT
@@ -13,13 +12,59 @@ namespace WORLDGAMEDEVELOPMENT
         [SerializeField] private string _turrretDataPath;
         [SerializeField] private string _coinsDataPath;
         [SerializeField] private string _spawnDataPath;
+        [SerializeField] private string _presentDataPath;
+        [SerializeField] private string _enemyDataPath;
 
         private TurretData _turretData;
         private CoinsData _coinsData;
         private SpawnData _spawnData;
+        private PresentData _presentData;
+        private EnemyData _enemyData;
 
         #endregion
 
+
+        #region EnemyData
+
+        public EnemyData EnemyData
+        {
+            get
+            {
+                if (_enemyData == null)
+                {
+                    _enemyData = Resources.Load<EnemyData>(
+                        Path.Combine(ManagerPath.DATA, ManagerPath.ENEMY, ManagerPath.ENEMYDATA));
+                    if (_enemyData == null)
+                        _enemyData = Resources.Load<EnemyData>(_enemyDataPath);
+                }
+                return _enemyData;
+            }
+        }
+
+        #endregion
+
+
+        #region PresentData
+
+        public PresentData PresentData
+        {
+            get
+            {
+                if (_presentData == null)
+                {
+                    _presentData = Resources.Load<PresentData>(
+                        Path.Combine(ManagerPath.DATA, ManagerPath.ITEMS, ManagerPath.PRESENT));
+                    if (_presentData == null)
+                        _presentData = Resources.Load<PresentData>(_presentDataPath);
+                }
+                return _presentData;
+            }
+        }
+
+        #endregion
+
+
+        #region SpawnData
 
         public SpawnData SpawnData
         {
@@ -38,7 +83,10 @@ namespace WORLDGAMEDEVELOPMENT
             }
         }
 
+        #endregion
 
+
+        #region TurretData
 
         public TurretData TurretData
         {
@@ -56,6 +104,11 @@ namespace WORLDGAMEDEVELOPMENT
             }
         }
 
+        #endregion
+
+
+        #region CoinsData
+
         public CoinsData CoinsData
         {
             get
@@ -63,7 +116,7 @@ namespace WORLDGAMEDEVELOPMENT
                 if (_coinsData == null)
                 {
                     _coinsData = Resources.Load<CoinsData>(
-                        Path.Combine(ManagerPath.DATA, ManagerPath.ITEMS, 
+                        Path.Combine(ManagerPath.DATA, ManagerPath.ITEMS,
                         ManagerPath.COINS, ManagerPath.COINSDATA));
                     if (_coinsData == null)
                         _coinsData = Resources.Load<CoinsData>(_coinsDataPath);
@@ -72,6 +125,6 @@ namespace WORLDGAMEDEVELOPMENT
             }
         }
 
-        
+        #endregion
     }
 }
