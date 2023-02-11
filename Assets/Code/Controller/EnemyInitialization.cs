@@ -14,15 +14,26 @@ namespace WORLDGAMEDEVELOPMENT
             _enemyFactory = enemyFactory;
         }
 
-        public void CreateEnemyModelStage(Level level)
+        private void CreareEnemyListStage(int countMonster)
         {
-            switch (level)
+            for (int i = 0; i < countMonster; i++)
+            {
+                EnemyModels.Add(_enemyFactory.CreateEnemyModel());
+            }
+        }
+
+        public void CreateEnemyModelStage(LevelSettings currentLevelSettings)
+        {
+            switch (currentLevelSettings.CurrentLevel)
             {
                 case Level.Zero:
                     break;
                 case Level.One:
-                    var countMonster = 6;
-                    CreareEnemyListStage(countMonster);
+                    EnemyModels.Clear();
+                    if (currentLevelSettings.spriteAnimatorConfigOne != null)
+                        CreareEnemyListStage(currentLevelSettings.CountMonsterOne);
+                    if (currentLevelSettings.spriteAnimatorConfigTwo != null)
+                        CreareEnemyListStage(currentLevelSettings.CountMonsterTwo);
                     break;
                 case Level.Two:
                     break;
@@ -30,15 +41,6 @@ namespace WORLDGAMEDEVELOPMENT
                     break;
                 default:
                     break;
-            }
-        }
-
-        private void CreareEnemyListStage(int countMonster)
-        {
-            EnemyModels.Clear();
-            for (int i = 0; i < countMonster; i++)
-            {
-                EnemyModels.Add(_enemyFactory.CreateEnemyModel());
             }
         }
     }

@@ -81,10 +81,10 @@ namespace WORLDGAMEDEVELOPMENT
 
             #endregion
 
-            
+
             #region LevelManager
-            
-            //var levelManager = new LevelManager(_data.LevelData); 
+
+            var levelController = new LevelController(_data.LevelData);
 
             #endregion
 
@@ -93,7 +93,7 @@ namespace WORLDGAMEDEVELOPMENT
 
             var enemyFactory = new EnemyFactory(_data.EnemyData);
             var enemyInitialization = new EnemyInitialization(enemyFactory);
-            enemyInitialization.CreateEnemyModelStage(Level.One);
+            enemyInitialization.CreateEnemyModelStage(levelController.CurrentLevelSettings);
 
             #endregion
 

@@ -10,7 +10,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 8219d55c427ddd1468ac45b3009fe56e, type: 3}
-  m_Name: ZenChanSpriteAnimatorConfig
+  m_Name: SpriteAnimatorConfigZenChan
   m_EditorClassIdentifier: 
   Sequences:
   - Track: 1
@@ -19,3 +19,9 @@ MonoBehaviour:
     - {fileID: 563575436, guid: 605cdc1287b92f54c93c5b7397e9e102, type: 3}
     - {fileID: 1872563882, guid: 605cdc1287b92f54c93c5b7397e9e102, type: 3}
     - {fileID: -1472645417, guid: 605cdc1287b92f54c93c5b7397e9e102, type: 3}
+  - Track: 0
+    Sprites:
+    - {fileID: 326170357, guid: a69932921a41c164ab90cac969c0a0a3, type: 3}
+    - {fileID: -692309563, guid: a69932921a41c164ab90cac969c0a0a3, type: 3}
+    - {fileID: -1809630864, guid: a69932921a41c164ab90cac969c0a0a3, type: 3}
+    - {fileID: -1921768167, guid: a69932921a41c164ab90cac969c0a0a3, type: 3}
