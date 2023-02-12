@@ -93,6 +93,7 @@ namespace WORLDGAMEDEVELOPMENT
 
             var enemyFactory = new EnemyFactory();
             var enemyInitialization = new EnemyInitialization(enemyFactory);
+
             enemyInitialization.CreateEnemyModelStage(levelController.CurrentLevelSettings);
 
             #endregion
@@ -103,8 +104,6 @@ namespace WORLDGAMEDEVELOPMENT
             var coinsFactory = new CoinsFactory(_data.CoinsData);
             var coinsInitialization = new CoinsInitialization(coinsFactory);
             coinsInitialization.CreateCoins(spawnInitialization.SpawnModel.SpawnComponents.SpawnViewCoins.SpawnPointList);
-
-
 
             var coinsSpriteAnimatorController =
                     new SpriteAnimatorController(coinsInitialization.CoinsModels.FirstOrDefault().CoinsSettings.SpriteAnimatorConfig);
@@ -122,8 +121,6 @@ namespace WORLDGAMEDEVELOPMENT
             var presentInitialization = new PresentInitialization(presentFactory);
 
             #endregion
-
-
         }
 
 

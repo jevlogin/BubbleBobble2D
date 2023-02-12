@@ -18,7 +18,6 @@ namespace WORLDGAMEDEVELOPMENT
             var enemyStruct = enemyData.EnemyStruct;
             
             var enemySpawn = Object.Instantiate(enemyStruct.Prefab, _rootEnemy);
-            //enemySpawn.gameObject.SetActive(false);
 
             var enemyCompomemts = new EnemyComponents();
             enemyCompomemts.CircleCollider2D = enemySpawn.CircleCollider2D;

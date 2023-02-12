@@ -22,4 +22,4 @@ MonoBehaviour:
     EnemyView: {fileID: 0}
   EnemySettings:
     SpriteAnimatorConfig: {fileID: 11400000, guid: b5792e3da0e8c1344998d99b416fe30a, type: 2}
-    CountEnemyToLevel: 0
+    CountEnemyToLevel: 20

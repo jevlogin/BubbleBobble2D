@@ -89,7 +89,7 @@ MonoBehaviour:
     m_HSlider: 0
     m_VSlider: 0
     m_IgnoreScrollWheelUntilClicked: 0
-    m_EnableMouseInput: 0
+    m_EnableMouseInput: 1
     m_EnableSliderZoomHorizontal: 0
     m_EnableSliderZoomVertical: 0
     m_UniformScale: 1
@@ -419,9 +419,9 @@ MonoBehaviour:
   m_PlayAudio: 0
   m_AudioPlay: 0
   m_Position:
-    m_Target: {x: -0.09066209, y: -0.84486544, z: 0}
+    m_Target: {x: -0.07000017, y: 2.1899998, z: 0}
     speed: 2
-    m_Value: {x: -0.09066209, y: -0.84486544, z: 0}
+    m_Value: {x: -0.07000017, y: 2.1899998, z: 0}
   m_RenderMode: 0
   m_CameraMode:
     drawMode: 0
@@ -472,9 +472,9 @@ MonoBehaviour:
     speed: 2
     m_Value: {x: 0, y: 0, z: 0, w: 1}
   m_Size:
-    m_Target: 0.9128601
+    m_Target: 12.384135
     speed: 2
-    m_Value: 0.91217595
+    m_Value: 12.384135
   m_Ortho:
     m_Target: 1
     speed: 2
@@ -531,7 +531,7 @@ MonoBehaviour:
   m_MipLevel: 0
   m_Zoom: -1
   m_ScrollPosition: {x: 0, y: 0}
-  m_SelectedObject: {fileID: 0}
+  m_SelectedObject: {fileID: 11400000, guid: 4171fc5819b5e1f448067f54e5455c3f, type: 2}
   m_SelectedSpriteRectGUID: 00000000000000000000000000000000
   m_LastUsedModuleTypeName: 
 --- !u!114 &7
@@ -622,8 +622,8 @@ MonoBehaviour:
   m_SearchText: 
   m_TreeViewState:
     scrollPos: {x: 0, y: 0}
-    m_SelectedIDs: 71137e95
-    m_LastClickedID: -1786899599
+    m_SelectedIDs: 01fecd11
+    m_LastClickedID: 298712577
     m_ExpandedIDs: 2956c29689577ec10000000001fecd11
     m_RenameOverlay:
       m_UserAcceptedRename: 0
@@ -775,7 +775,7 @@ MonoBehaviour:
   m_MinSize: {x: 100, y: 200}
   m_MaxSize: {x: 8096, y: 16192}
   vertical: 1
-  controlID: 94
+  controlID: 9213
 --- !u!114 &14
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -843,21 +843,21 @@ MonoBehaviour:
     m_SkipHidden: 0
     m_SearchArea: 1
     m_Folders:
-    - Assets/Textures/Stage 1
+    - Assets/Code/Resources/Data/Enemy/Level1
     m_Globs: []
     m_OriginalText: 
   m_ViewMode: 1
   m_StartGridSize: 16
   m_LastFolders:
-  - Assets/Textures/Stage 1
+  - Assets/Code/Resources/Data/Enemy/Level1
   m_LastFoldersGridSize: 16
   m_LastProjectPath: D:\UnityProjects\BubbleBobble2D
   m_LockTracker:
     m_IsLocked: 0
   m_FolderTreeState:
-    scrollPos: {x: 0, y: 409}
-    m_SelectedIDs: c0620000
-    m_LastClickedID: 25280
+    scrollPos: {x: 0, y: 249}
+    m_SelectedIDs: 0c630000
+    m_LastClickedID: 25356
     m_ExpandedIDs: 00000000aa620000ac620000ae620000b0620000b2620000b4620000b6620000b8620000ba620000bc620000be620000c062000000ca9a3b
     m_RenameOverlay:
       m_UserAcceptedRename: 0
@@ -886,7 +886,7 @@ MonoBehaviour:
     scrollPos: {x: 0, y: 0}
     m_SelectedIDs: 
     m_LastClickedID: 0
-    m_ExpandedIDs: 00000000aa620000ac620000ae620000b0620000b2620000b4620000b6620000b8620000ba620000bc620000be620000c0620000
+    m_ExpandedIDs: 00000000aa620000ac620000ae620000b0620000b2620000b4620000b6620000b8620000ba620000bc620000be620000c062000000ca9a3b
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -911,8 +911,8 @@ MonoBehaviour:
       m_Icon: {fileID: 0}
       m_ResourceFile: 
   m_ListAreaState:
-    m_SelectedInstanceIDs: 7cf4ffff
-    m_LastClickedInstanceID: -2948
+    m_SelectedInstanceIDs: ca620000
+    m_LastClickedInstanceID: 25290
     m_HadKeyboardFocusLastEvent: 0
     m_ExpandedInstanceIDs: 7a550000f66c00000473000000000000248e0000226e00007ea80000aa0100006e61000002630000e07300001c7400006272000034740000ea2700001aaf00003e6b00009e620000d8620000d4620000
     m_RenameOverlay:
@@ -961,8 +961,8 @@ MonoBehaviour:
     y: 488
     width: 417
     height: 459
-  m_MinSize: {x: 202, y: 221}
-  m_MaxSize: {x: 4002, y: 4021}
+  m_MinSize: {x: 201, y: 221}
+  m_MaxSize: {x: 4001, y: 4021}
   m_ActualView: {fileID: 17}
   m_Panes:
   - {fileID: 17}
@@ -1000,9 +1000,9 @@ MonoBehaviour:
   m_SceneHierarchy:
     m_TreeViewState:
       scrollPos: {x: 0, y: 0}
-      m_SelectedIDs: 7cf4ffff
-      m_LastClickedID: -2948
-      m_ExpandedIDs: 80f4ffff26fbffff
+      m_SelectedIDs: ca620000
+      m_LastClickedID: 0
+      m_ExpandedIDs: 3ea3ffff30a6ffffd4c2ffff76ceffffaaddffff80f4ffff26fbffff
       m_RenameOverlay:
         m_UserAcceptedRename: 0
         m_Name: 

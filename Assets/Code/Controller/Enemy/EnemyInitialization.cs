@@ -1,18 +1,27 @@
 ﻿using System.Collections.Generic;
-using System.Linq;
+
 
 namespace WORLDGAMEDEVELOPMENT
 {
     public sealed class EnemyInitialization
     {
+        #region Fields
+
         private EnemyFactory _enemyFactory;
         public List<EnemyModel> EnemyModels = new List<EnemyModel>();
 
+        #endregion
+
+
+        #region ClassLifeCycles
 
         public EnemyInitialization(EnemyFactory enemyFactory)
         {
             _enemyFactory = enemyFactory;
         }
+
+        #endregion
+
 
         private void CreareEnemyListStage(LevelSettings currentLevelSettings)
         {
