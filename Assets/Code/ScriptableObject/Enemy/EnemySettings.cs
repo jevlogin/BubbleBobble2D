@@ -7,5 +7,6 @@ namespace WORLDGAMEDEVELOPMENT
     public sealed class EnemySettings
     {
         public SpriteAnimatorConfig SpriteAnimatorConfig;
+        public int CountEnemyToLevel;
     }
 }

@@ -1,5 +1,5 @@
 ﻿using System.Collections.Generic;
-
+using System.Linq;
 
 namespace WORLDGAMEDEVELOPMENT
 {
@@ -14,11 +14,15 @@ namespace WORLDGAMEDEVELOPMENT
             _enemyFactory = enemyFactory;
         }
 
-        private void CreareEnemyListStage(int countMonster)
+        private void CreareEnemyListStage(LevelSettings currentLevelSettings)
         {
-            for (int i = 0; i < countMonster; i++)
+            EnemyModels.Clear();
+            foreach (var data in currentLevelSettings.EnemyDataList)
             {
-                EnemyModels.Add(_enemyFactory.CreateEnemyModel());
+                for (int i = 0; i < data.EnemySettings.CountEnemyToLevel; i++)
+                {
+                    EnemyModels.Add(_enemyFactory.CreateEnemyModel(data));
+                }
             }
         }
 
@@ -29,11 +33,7 @@ namespace WORLDGAMEDEVELOPMENT
                 case Level.Zero:
                     break;
                 case Level.One:
-                    EnemyModels.Clear();
-                    if (currentLevelSettings.spriteAnimatorConfigOne != null)
-                        CreareEnemyListStage(currentLevelSettings.CountMonsterOne);
-                    if (currentLevelSettings.spriteAnimatorConfigTwo != null)
-                        CreareEnemyListStage(currentLevelSettings.CountMonsterTwo);
+                    CreareEnemyListStage(currentLevelSettings);
                     break;
                 case Level.Two:
                     break;

@@ -8,7 +8,5 @@ namespace WORLDGAMEDEVELOPMENT
     {
         public EnemyView Prefab;
         public int Speed;
-        public int MaxHp;
-        public int CurrentHp;
     }
 }

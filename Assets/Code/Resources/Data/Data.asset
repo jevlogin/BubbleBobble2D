@@ -17,3 +17,4 @@ MonoBehaviour:
   _spawnDataPath: Data/Spawn/SpawnData
   _presentDataPath: Data/Items/PresentData
   _enemyDataPath: Data/Enemy/EnemyData
+  _levelDataPath: Data/Level/LevelData

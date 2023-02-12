@@ -91,7 +91,7 @@ namespace WORLDGAMEDEVELOPMENT
 
             #region Enemy
 
-            var enemyFactory = new EnemyFactory(_data.EnemyData);
+            var enemyFactory = new EnemyFactory();
             var enemyInitialization = new EnemyInitialization(enemyFactory);
             enemyInitialization.CreateEnemyModelStage(levelController.CurrentLevelSettings);
 
@@ -102,7 +102,7 @@ namespace WORLDGAMEDEVELOPMENT
 
             var coinsFactory = new CoinsFactory(_data.CoinsData);
             var coinsInitialization = new CoinsInitialization(coinsFactory);
-            coinsInitialization.CreateCoins(spawnInitialization.SpawnModel.SpawnComponents.SpawnPoints);
+            coinsInitialization.CreateCoins(spawnInitialization.SpawnModel.SpawnComponents.SpawnViewCoins.SpawnPointList);
 
 
 

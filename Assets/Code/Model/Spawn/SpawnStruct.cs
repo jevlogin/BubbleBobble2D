@@ -6,6 +6,7 @@ namespace WORLDGAMEDEVELOPMENT
     [Serializable]
     public struct SpawnStruct
     {
-        public SpawnPointsView Prefab;
+        public SpawnPointsView PrefabCoins;
+        public SpawnPointsView SpawnEnemyPoints;
     }
 }

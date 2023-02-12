@@ -419,9 +419,9 @@ MonoBehaviour:
   m_PlayAudio: 0
   m_AudioPlay: 0
   m_Position:
-    m_Target: {x: -3.2344275, y: -0.76443356, z: -0.034679644}
+    m_Target: {x: -0.09066209, y: -0.84486544, z: 0}
     speed: 2
-    m_Value: {x: -3.2344275, y: -0.76443356, z: -0.034679644}
+    m_Value: {x: -0.09066209, y: -0.84486544, z: 0}
   m_RenderMode: 0
   m_CameraMode:
     drawMode: 0
@@ -472,9 +472,9 @@ MonoBehaviour:
     speed: 2
     m_Value: {x: 0, y: 0, z: 0, w: 1}
   m_Size:
-    m_Target: 11.833588
+    m_Target: 0.9128601
     speed: 2
-    m_Value: 11.833588
+    m_Value: 0.91217595
   m_Ortho:
     m_Target: 1
     speed: 2
@@ -532,7 +532,7 @@ MonoBehaviour:
   m_Zoom: -1
   m_ScrollPosition: {x: 0, y: 0}
   m_SelectedObject: {fileID: 0}
-  m_SelectedSpriteRectGUID: 586d859b9a4d5464693b9d970ab6795b
+  m_SelectedSpriteRectGUID: 00000000000000000000000000000000
   m_LastUsedModuleTypeName: 
 --- !u!114 &7
 MonoBehaviour:
@@ -775,7 +775,7 @@ MonoBehaviour:
   m_MinSize: {x: 100, y: 200}
   m_MaxSize: {x: 8096, y: 16192}
   vertical: 1
-  controlID: 148
+  controlID: 94
 --- !u!114 &14
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -843,22 +843,22 @@ MonoBehaviour:
     m_SkipHidden: 0
     m_SearchArea: 1
     m_Folders:
-    - Assets/Resources/Prefabs/Enemy
+    - Assets/Textures/Stage 1
     m_Globs: []
     m_OriginalText: 
   m_ViewMode: 1
   m_StartGridSize: 16
   m_LastFolders:
-  - Assets/Resources/Prefabs/Enemy
+  - Assets/Textures/Stage 1
   m_LastFoldersGridSize: 16
   m_LastProjectPath: D:\UnityProjects\BubbleBobble2D
   m_LockTracker:
     m_IsLocked: 0
   m_FolderTreeState:
-    scrollPos: {x: 0, y: 309}
-    m_SelectedIDs: dc8f0000
-    m_LastClickedID: 36828
-    m_ExpandedIDs: 00000000406100004261000044610000486100004e61000050610000526100005461000086610000886100009261000000ca9a3b
+    scrollPos: {x: 0, y: 409}
+    m_SelectedIDs: c0620000
+    m_LastClickedID: 25280
+    m_ExpandedIDs: 00000000aa620000ac620000ae620000b0620000b2620000b4620000b6620000b8620000ba620000bc620000be620000c062000000ca9a3b
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -886,7 +886,7 @@ MonoBehaviour:
     scrollPos: {x: 0, y: 0}
     m_SelectedIDs: 
     m_LastClickedID: 0
-    m_ExpandedIDs: 0000000040610000426100004461000046610000486100004a6100004c6100004e610000506100005261000054610000
+    m_ExpandedIDs: 00000000aa620000ac620000ae620000b0620000b2620000b4620000b6620000b8620000ba620000bc620000be620000c0620000
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -911,10 +911,10 @@ MonoBehaviour:
       m_Icon: {fileID: 0}
       m_ResourceFile: 
   m_ListAreaState:
-    m_SelectedInstanceIDs: 0eb5ffff
-    m_LastClickedInstanceID: -19186
-    m_HadKeyboardFocusLastEvent: 1
-    m_ExpandedInstanceIDs: 7a550000f66c00000473000000000000248e0000226e00007ea80000aa0100006e61000002630000e07300001c7400006272000034740000ea2700001aaf00003e6b00009e62000004610000
+    m_SelectedInstanceIDs: 7cf4ffff
+    m_LastClickedInstanceID: -2948
+    m_HadKeyboardFocusLastEvent: 0
+    m_ExpandedInstanceIDs: 7a550000f66c00000473000000000000248e0000226e00007ea80000aa0100006e61000002630000e07300001c7400006272000034740000ea2700001aaf00003e6b00009e620000d8620000d4620000
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -999,10 +999,10 @@ MonoBehaviour:
     m_SaveData: []
   m_SceneHierarchy:
     m_TreeViewState:
-      scrollPos: {x: 0, y: 15}
-      m_SelectedIDs: 0eb5ffff
-      m_LastClickedID: -19186
-      m_ExpandedIDs: 26fbffffb05f0000
+      scrollPos: {x: 0, y: 0}
+      m_SelectedIDs: 7cf4ffff
+      m_LastClickedID: -2948
+      m_ExpandedIDs: 80f4ffff26fbffff
       m_RenameOverlay:
         m_UserAcceptedRename: 0
         m_Name: 

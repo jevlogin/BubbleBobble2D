@@ -26,11 +26,11 @@ namespace WORLDGAMEDEVELOPMENT
 
         #region Methods
 
-        public void CreateCoins(List<Vector3> spawnPoints)
+        public void CreateCoins(List<Transform> spawnPointList)
         {
-            for (int i = 0; i < spawnPoints.Count; i++)
+            for (int i = 0; i < spawnPointList.Count; i++)
             {
-                CoinsModels.Add(_coinsFactory.CreateCoinsModel(spawnPoints[i]));
+                CoinsModels.Add(_coinsFactory.CreateCoinsModel(spawnPointList[i].position));
             }
         }
 

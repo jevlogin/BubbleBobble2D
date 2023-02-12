@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using System.Collections.Generic;
+using UnityEngine;
 
 
 namespace WORLDGAMEDEVELOPMENT
@@ -19,17 +20,23 @@ namespace WORLDGAMEDEVELOPMENT
 
             var spawnComponents = new SpawnComponents();
 
-            var spawnPrefab = Object.Instantiate(spawnStruct.Prefab);
+            var spawnPrefabCoins = Object.Instantiate(spawnStruct.PrefabCoins);
+            spawnComponents.SpawnViewCoins = spawnPrefabCoins;
 
-            for (int i = 0; i < spawnPrefab.SpawnPointList.Count; i++)
-            {
-                spawnComponents.SpawnPoints.Add(spawnPrefab.SpawnPointList[i].position);
-                spawnPrefab.SpawnPointList[i].gameObject.SetActive(false);
-            }
+            var spawnPrefabEnemy = Object.Instantiate(spawnStruct.SpawnEnemyPoints);
+            spawnComponents.SpawnViewEnemy = spawnPrefabEnemy;
+
+            SetActiveFalseThisComponent(spawnPrefabCoins.SpawnPointList);
+            SetActiveFalseThisComponent(spawnPrefabEnemy.SpawnPointList);
 
             _spawnModel = new SpawnModel(spawnStruct, spawnComponents);
-            
+
             return _spawnModel;
+        }
+
+        private void SetActiveFalseThisComponent(List<Transform> spawnPointList)
+        {
+            foreach (var spawnPoint in spawnPointList) { spawnPoint.gameObject.SetActive(false); }
         }
     }
 }

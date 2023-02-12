@@ -13,14 +13,12 @@ namespace WORLDGAMEDEVELOPMENT
         [SerializeField] private string _coinsDataPath;
         [SerializeField] private string _spawnDataPath;
         [SerializeField] private string _presentDataPath;
-        [SerializeField] private string _enemyDataPath;
         [SerializeField] private string _levelDataPath;
 
         private TurretData _turretData;
         private CoinsData _coinsData;
         private SpawnData _spawnData;
         private PresentData _presentData;
-        private EnemyData _enemyData;
         private LevelData _levelData;
 
         #endregion
@@ -40,26 +38,6 @@ namespace WORLDGAMEDEVELOPMENT
                         _levelData = Resources.Load<LevelData>(_levelDataPath);
                 }
                 return _levelData;
-            }
-        }
-
-        #endregion
-
-
-        #region EnemyData
-
-        public EnemyData EnemyData
-        {
-            get
-            {
-                if (_enemyData == null)
-                {
-                    _enemyData = Resources.Load<EnemyData>(
-                        Path.Combine(ManagerPath.DATA, ManagerPath.ENEMY, ManagerPath.ENEMYDATA));
-                    if (_enemyData == null)
-                        _enemyData = Resources.Load<EnemyData>(_enemyDataPath);
-                }
-                return _enemyData;
             }
         }
 

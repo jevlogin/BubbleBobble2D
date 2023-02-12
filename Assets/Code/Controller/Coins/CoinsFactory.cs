@@ -10,6 +10,7 @@ namespace WORLDGAMEDEVELOPMENT
 
         private readonly CoinsData _coinsData;
         private CoinsModels _coinsModels;
+        private readonly Transform _rootCoins;
 
         #endregion
 
@@ -19,6 +20,7 @@ namespace WORLDGAMEDEVELOPMENT
         public CoinsFactory(CoinsData coinsData)
         {
             _coinsData = coinsData;
+            _rootCoins = new GameObject("RootCoins").transform;
         }
 
         #endregion
@@ -44,6 +46,7 @@ namespace WORLDGAMEDEVELOPMENT
         private CoinView CreateCoinView(Vector3 position)
         {
             var view = new GameObject("Coins").AddComponent<CoinView>();
+            view.transform.SetParent(_rootCoins);
             view.transform.position = position;
 
             var collider = view.AddComponent<CircleCollider2D>();

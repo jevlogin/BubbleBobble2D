@@ -1,23 +1,24 @@
-﻿using Object = UnityEngine.Object;
+﻿using UnityEngine;
+using Object = UnityEngine.Object;
 
 
 namespace WORLDGAMEDEVELOPMENT
 {
     public sealed class EnemyFactory
     {
-        private readonly EnemyData _enemyData;
-
-        public EnemyFactory(EnemyData enemyData)
+        private readonly Transform _rootEnemy;
+       
+        public EnemyFactory()
         {
-            _enemyData = enemyData;
+            _rootEnemy = new GameObject("RootEnemy").transform;
         }
 
-        public EnemyModel CreateEnemyModel()
+        public EnemyModel CreateEnemyModel(EnemyData enemyData)
         {
-            var enemyStruct = _enemyData.EnemyStruct;
+            var enemyStruct = enemyData.EnemyStruct;
             
-            var enemySpawn = Object.Instantiate(enemyStruct.Prefab);
-            enemySpawn.gameObject.SetActive(false);
+            var enemySpawn = Object.Instantiate(enemyStruct.Prefab, _rootEnemy);
+            //enemySpawn.gameObject.SetActive(false);
 
             var enemyCompomemts = new EnemyComponents();
             enemyCompomemts.CircleCollider2D = enemySpawn.CircleCollider2D;
@@ -26,7 +27,7 @@ namespace WORLDGAMEDEVELOPMENT
             enemyCompomemts.EnemyView = enemySpawn;
 
             var enemySettings = new EnemySettings();
-            enemySettings.SpriteAnimatorConfig = _enemyData.EnemySettings.SpriteAnimatorConfig;
+            enemySettings.SpriteAnimatorConfig = enemyData.EnemySettings.SpriteAnimatorConfig;
 
             var model = new EnemyModel(enemyStruct, enemyCompomemts, enemySettings);
 

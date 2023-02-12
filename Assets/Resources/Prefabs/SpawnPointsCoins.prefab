@@ -95,7 +95,7 @@ GameObject:
   - component: {fileID: 786597761680439477}
   - component: {fileID: 786597761680439476}
   m_Layer: 0
-  m_Name: SpawnPoints
+  m_Name: SpawnPointsCoins
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

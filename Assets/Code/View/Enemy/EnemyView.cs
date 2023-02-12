@@ -1,16 +1,17 @@
+using System;
 using Unity.VisualScripting;
 using UnityEngine;
 
 
 namespace WORLDGAMEDEVELOPMENT
 {
-    public sealed class EnemyView : MonoBehaviour
+    public sealed class EnemyView : MonoBehaviour, ICollision
     {
         #region Fields
-        
+
         private Rigidbody2D _rigidbody2D;
         private CircleCollider2D _circleCollider2D;
-        private SpriteRenderer _spriteRenderer; 
+        private SpriteRenderer _spriteRenderer;
 
         #endregion
 
@@ -45,7 +46,22 @@ namespace WORLDGAMEDEVELOPMENT
                     _spriteRenderer = gameObject.GetOrAddComponent<SpriteRenderer>();
                 return _spriteRenderer;
             }
-        } 
+        }
+
+        public event Action<Collider2D> ColliderDetectChange;
+        public event Action<SpriteRenderer> SpriteRendererDetectChange;
+
+        #endregion
+
+
+        #region UnityMethods
+
+        private void OnTriggerEnter2D(Collider2D collision)
+        {
+            Debug.Log($"Collision to {collision.name}");
+            ColliderDetectChange?.Invoke(collision);
+            SpriteRendererDetectChange?.Invoke(SpriteRenderer);
+        }
 
         #endregion
     }

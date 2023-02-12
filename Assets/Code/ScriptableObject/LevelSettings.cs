@@ -1,5 +1,7 @@
 ﻿using System;
+using System.Collections.Generic;
 using UnityEngine;
+
 
 namespace WORLDGAMEDEVELOPMENT
 {
@@ -8,13 +10,8 @@ namespace WORLDGAMEDEVELOPMENT
     {
         #region Fields
 
-        [Header("Phirst Enemy Config")] public SpriteAnimatorConfig spriteAnimatorConfigOne;
-        [Header("Second Enemy Config")] public SpriteAnimatorConfig spriteAnimatorConfigTwo;
-
+        [Header("Enemy Data List")] public List<EnemyData> EnemyDataList = new List<EnemyData>();
         [Header("Current Level")] public Level CurrentLevel;
-
-        [Header("Phirst Enemy Count")] public int CountMonsterOne;
-        [Header("Second Enemy Count")] public int CountMonsterTwo;
 
         #endregion
     }

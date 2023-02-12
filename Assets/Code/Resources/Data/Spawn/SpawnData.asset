@@ -13,4 +13,5 @@ MonoBehaviour:
   m_Name: SpawnData
   m_EditorClassIdentifier: 
   SpawnStruct:
-    Prefab: {fileID: 786597761680439476, guid: 3bf5ffce57dc9434bb02749cec59b543, type: 3}
+    PrefabCoins: {fileID: 786597761680439476, guid: 3bf5ffce57dc9434bb02749cec59b543, type: 3}
+    SpawnEnemyPoints: {fileID: 5456759913381626444, guid: 95faac157ba443541ac4991c3aff0c34, type: 3}

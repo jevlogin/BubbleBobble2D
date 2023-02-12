@@ -14,8 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   LevelStruct:
     LevelSettings:
-    - spriteAnimatorConfigOne: {fileID: 11400000, guid: 247e40933074da241a7b3712bea0613e, type: 2}
-      spriteAnimatorConfigTwo: {fileID: 0}
+    - EnemyDataList:
+      - {fileID: 11400000, guid: 2c138bec4c3e2b640b9fa2aec5d5b801, type: 2}
+      - {fileID: 11400000, guid: 4171fc5819b5e1f448067f54e5455c3f, type: 2}
       CurrentLevel: 1
-      CountMonsterOne: 6
-      CountMonsterTwo: 0
