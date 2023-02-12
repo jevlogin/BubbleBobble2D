@@ -13,11 +13,12 @@ namespace WORLDGAMEDEVELOPMENT
             _rootEnemy = new GameObject("RootEnemy").transform;
         }
 
-        public EnemyModel CreateEnemyModel(EnemyData enemyData)
+        public EnemyModel CreateEnemyModel(EnemyData enemyData, Transform point)
         {
             var enemyStruct = enemyData.EnemyStruct;
             
-            var enemySpawn = Object.Instantiate(enemyStruct.Prefab, _rootEnemy);
+            var enemySpawn = Object.Instantiate(enemyStruct.Prefab, point.position, Quaternion.identity);
+            enemySpawn.transform.SetParent(_rootEnemy);
 
             var enemyCompomemts = new EnemyComponents();
             enemyCompomemts.CircleCollider2D = enemySpawn.CircleCollider2D;

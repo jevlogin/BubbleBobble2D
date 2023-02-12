@@ -94,7 +94,8 @@ namespace WORLDGAMEDEVELOPMENT
             var enemyFactory = new EnemyFactory();
             var enemyInitialization = new EnemyInitialization(enemyFactory);
 
-            enemyInitialization.CreateEnemyModelStage(levelController.CurrentLevelSettings);
+            enemyInitialization.CreateEnemyModelStage(levelController.CurrentLevelSettings, 
+                spawnInitialization.SpawnModel.SpawnComponents.SpawnViewEnemy.SpawnPointList);
 
             #endregion
 

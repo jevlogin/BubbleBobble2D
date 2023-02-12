@@ -1,5 +1,5 @@
 ﻿using System.Collections.Generic;
-
+using UnityEngine;
 
 namespace WORLDGAMEDEVELOPMENT
 {
@@ -23,26 +23,29 @@ namespace WORLDGAMEDEVELOPMENT
         #endregion
 
 
-        private void CreareEnemyListStage(LevelSettings currentLevelSettings)
+        private void CreareEnemyListStage(LevelSettings currentLevelSettings, 
+                                            List<Transform> spawnPointList)
         {
             EnemyModels.Clear();
             foreach (var data in currentLevelSettings.EnemyDataList)
             {
                 for (int i = 0; i < data.EnemySettings.CountEnemyToLevel; i++)
                 {
-                    EnemyModels.Add(_enemyFactory.CreateEnemyModel(data));
+                    var point = spawnPointList[i % spawnPointList.Count];
+                    EnemyModels.Add(_enemyFactory.CreateEnemyModel(data, point));
                 }
             }
         }
 
-        public void CreateEnemyModelStage(LevelSettings currentLevelSettings)
+        public void CreateEnemyModelStage(LevelSettings currentLevelSettings, 
+                        List<Transform> spawnPointList)
         {
             switch (currentLevelSettings.CurrentLevel)
             {
                 case Level.Zero:
                     break;
                 case Level.One:
-                    CreareEnemyListStage(currentLevelSettings);
+                    CreareEnemyListStage(currentLevelSettings, spawnPointList);
                     break;
                 case Level.Two:
                     break;
