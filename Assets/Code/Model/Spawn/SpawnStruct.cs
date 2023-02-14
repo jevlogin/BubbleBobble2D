@@ -8,5 +8,7 @@ namespace WORLDGAMEDEVELOPMENT
     {
         public SpawnPointsView PrefabCoins;
         public SpawnPointsView SpawnEnemyPoints;
+        public SpawnPointsView SpawnPatrolPoints;
+        public LevelObjectTrigger ProtectedZoneTrigger;
     }
 }

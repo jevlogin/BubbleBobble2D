@@ -8,5 +8,6 @@ namespace WORLDGAMEDEVELOPMENT
     {
         public EnemyView Prefab;
         public int Speed;
+        public AIStruct AIStruct;
     }
 }

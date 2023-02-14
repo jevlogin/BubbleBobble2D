@@ -21,7 +21,8 @@ namespace WORLDGAMEDEVELOPMENT
 
             var presentChest = Object.Instantiate(presentStruct.PrefabChest);
             var presentItemsOne = Object.Instantiate(presentStruct.PrefabItemsOne);
-            //presentChest.SetActive(false);
+            presentChest.SetActive(false);
+            presentItemsOne.SetActive(false);
 
             var presentComponents = new PresentComponents();
             presentComponents.PresentChest = presentChest;

@@ -26,6 +26,14 @@ namespace WORLDGAMEDEVELOPMENT
             var spawnPrefabEnemy = Object.Instantiate(spawnStruct.SpawnEnemyPoints);
             spawnComponents.SpawnViewEnemy = spawnPrefabEnemy;
 
+            var spawnpatrolPoints = Object.Instantiate(spawnStruct.SpawnPatrolPoints);
+            spawnComponents.SpawnViewPatrolLevel = spawnpatrolPoints;
+
+            var spawnProtectedZone = Object.Instantiate(spawnStruct.ProtectedZoneTrigger);
+            spawnComponents.SpawnProtectorZoneTrigger = spawnProtectedZone;
+
+            //TODO - later deactivate patrolpoints and zone trigger;
+
             SetActiveFalseThisComponent(spawnPrefabCoins.SpawnPointList);
             SetActiveFalseThisComponent(spawnPrefabEnemy.SpawnPointList);
 

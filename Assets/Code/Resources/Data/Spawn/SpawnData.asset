@@ -15,3 +15,5 @@ MonoBehaviour:
   SpawnStruct:
     PrefabCoins: {fileID: 786597761680439476, guid: 3bf5ffce57dc9434bb02749cec59b543, type: 3}
     SpawnEnemyPoints: {fileID: 5456759913381626444, guid: 95faac157ba443541ac4991c3aff0c34, type: 3}
+    SpawnPatrolPoints: {fileID: 1535110790707924217, guid: c0e1a528cff38b44190ce51e57ea1ee9, type: 3}
+    ProtectedZoneTrigger: {fileID: 7378211687772691270, guid: c707ce4f9b5fc184585d52200111112f, type: 3}

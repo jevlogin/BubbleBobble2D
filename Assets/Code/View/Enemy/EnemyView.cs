@@ -1,3 +1,4 @@
+using Pathfinding;
 using System;
 using Unity.VisualScripting;
 using UnityEngine;
@@ -12,11 +13,49 @@ namespace WORLDGAMEDEVELOPMENT
         private Rigidbody2D _rigidbody2D;
         private CircleCollider2D _circleCollider2D;
         private SpriteRenderer _spriteRenderer;
+        private Seeker _seeker;
+        private AIDestinationSetter _aIDestinationSetter;
+        private AIPatrolPath _aIPatrolPath;
 
         #endregion
 
 
         #region Properties
+
+        public AIPatrolPath AIPatrolPath
+        {
+            get
+            {
+                if (_aIPatrolPath == null)
+                {
+                    _aIPatrolPath = gameObject.GetOrAddComponent<AIPatrolPath>();
+                    _aIPatrolPath.orientation = OrientationMode.YAxisForward;
+                    _aIPatrolPath.radius = 0.4f;
+                }
+                return _aIPatrolPath;
+            }
+        }
+
+
+        public AIDestinationSetter AIDestinationSetter
+        {
+            get
+            {
+                if (_aIDestinationSetter == null)
+                    _aIDestinationSetter = gameObject.GetOrAddComponent<AIDestinationSetter>();
+                return _aIDestinationSetter;
+            }
+        }
+
+        public Seeker Seeker
+        {
+            get
+            {
+                if (_seeker == null) _seeker = gameObject.GetOrAddComponent<Seeker>();
+                return _seeker;
+            }
+        }
+
 
         public Rigidbody2D Rigidbody2D
         {
@@ -47,6 +86,7 @@ namespace WORLDGAMEDEVELOPMENT
                 return _spriteRenderer;
             }
         }
+
 
         public event Action<Collider2D> ColliderDetectChange;
         public event Action<SpriteRenderer> SpriteRendererDetectChange;

@@ -95,7 +95,14 @@ namespace WORLDGAMEDEVELOPMENT
             var enemyInitialization = new EnemyInitialization(enemyFactory);
 
             enemyInitialization.CreateEnemyModelStage(levelController.CurrentLevelSettings, 
-                spawnInitialization.SpawnModel.SpawnComponents.SpawnViewEnemy.SpawnPointList);
+                spawnInitialization.SpawnModel);
+
+            #endregion
+
+
+            #region AI
+
+            var AIController = new AIController(enemyInitialization.EnemyModels, spawnInitialization.SpawnModel.SpawnComponents);
 
             #endregion
 

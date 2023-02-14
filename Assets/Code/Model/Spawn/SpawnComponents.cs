@@ -1,11 +1,10 @@
-﻿using System.Collections.Generic;
-using UnityEngine;
-
-namespace WORLDGAMEDEVELOPMENT
+﻿namespace WORLDGAMEDEVELOPMENT
 {
     public class SpawnComponents
     {
         public SpawnPointsView SpawnViewCoins;
         public SpawnPointsView SpawnViewEnemy;
+        public SpawnPointsView SpawnViewPatrolLevel;
+        public LevelObjectTrigger SpawnProtectorZoneTrigger;
     }
 }
