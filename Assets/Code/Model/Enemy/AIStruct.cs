@@ -7,10 +7,9 @@ namespace WORLDGAMEDEVELOPMENT
     [Serializable]
     public struct AIStruct
     {
-        [Header("Patrol Config")]
-        public float MinDistanceToTarget;
+        public float MinSqrDistanceToTarget;
         public float MaxDistanceToTarget;
-        public Transform[] waypoints;
+        public Transform[] Waypoints;
         public EnemyType EnemyType;
     }
 }

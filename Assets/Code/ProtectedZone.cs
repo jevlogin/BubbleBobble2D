@@ -1,12 +1,13 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 
 
 namespace WORLDGAMEDEVELOPMENT
 {
-    public sealed class ProtectedZone
+    public sealed class ProtectedZone : IInitialization, ICleanup
     {
         private readonly List<IProtector> _protectors;
         private readonly LevelObjectTrigger _view;
@@ -17,32 +18,32 @@ namespace WORLDGAMEDEVELOPMENT
             _view = levelObjectTrigger ?? throw new ArgumentNullException(nameof(levelObjectTrigger));
         }
 
-        public void Init()
+        private void CollisionTriggerExit(object sender, GameObject gameObject)
         {
-            _view.TriggerEnter += _view_TriggerEnter;
-            _view.TriggerExit += _view_TriggerExit;
-        }
+            Debug.Log($"Test CollisionTriggerExit {nameof(ProtectedZone)}");
 
-        public void DeInit()
-        {
-            _view.TriggerEnter -= _view_TriggerEnter;
-            _view.TriggerExit -= _view_TriggerExit;
-        }
-
-        private void _view_TriggerExit(object sender, GameObject gameObject)
-        {
             foreach (var protector in _protectors)
-            {
                 protector.FinishProtection(gameObject);
-            }
         }
 
-        private void _view_TriggerEnter(object sender, GameObject gameObject)
+        private void CollisionTriggerEnter(object sender, GameObject gameObject)
         {
+            Debug.Log($"Test CollisionTriggerEnter {nameof(ProtectedZone)}");
+
             foreach (var protector in _protectors)
-            {
                 protector.StartProtection(gameObject);
-            }
+        }
+
+        public void Initialize()
+        {
+            _view.TriggerEnter += CollisionTriggerEnter;
+            _view.TriggerExit += CollisionTriggerExit;
+        }
+
+        public void Cleanup()
+        {
+            _view.TriggerEnter -= CollisionTriggerEnter;
+            _view.TriggerExit -= CollisionTriggerExit;
         }
     }
 }

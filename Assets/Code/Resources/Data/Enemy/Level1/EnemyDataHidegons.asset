@@ -14,12 +14,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   EnemyStruct:
     Prefab: {fileID: 1970292815926952209, guid: d593beb6545dcc8458338c0c0d052da8, type: 3}
-    Speed: 100
+    Speed: 2
     AIStruct:
-      MinDistanceToTarget: 1
+      MinSqrDistanceToTarget: 1
       MaxDistanceToTarget: 2
-      waypoints: []
-      EnemyType: 1
+      Waypoints: []
+      EnemyType: 2
   EnemyComponents:
     Rigidbody2D: {fileID: 0}
     CircleCollider2D: {fileID: 0}
@@ -32,4 +32,4 @@ MonoBehaviour:
       Seeker: {fileID: 0}
   EnemySettings:
     SpriteAnimatorConfig: {fileID: 11400000, guid: b5792e3da0e8c1344998d99b416fe30a, type: 2}
-    CountEnemyToLevel: 2
+    CountEnemyToLevel: 1

@@ -1,47 +1,45 @@
 using Pathfinding;
 using System;
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 
 namespace WORLDGAMEDEVELOPMENT
 {
-    public sealed class ProtectorAI : IProtector
+    public sealed class ProtectorAI : IProtector, IInitialization, ICleanup
     {
+        #region Fields
+
         private readonly EnemyView _view;
         private readonly PatrolAIModel _model;
         private readonly AIDestinationSetter _destinationSetter;
         private readonly AIPatrolPath _patrolPath;
         private bool _isPatrolling;
+        private EnemyModel _enemyModel;
 
-        public ProtectorAI(EnemyView enemyView, PatrolAIModel model, AIDestinationSetter setter, AIPatrolPath path)
-        {
-            _view = enemyView ?? throw new System.ArgumentNullException(nameof(enemyView));
-            _model = model ?? throw new System.ArgumentNullException(nameof(model));
-            _destinationSetter = setter ?? throw new System.ArgumentNullException(nameof(_destinationSetter));
-            _patrolPath = path ?? throw new System.ArgumentNullException(nameof(path));
-        }
+        #endregion
 
-        public void Init()
+        public ProtectorAI(EnemyModel enemyModel, PatrolAIModel patrolAIModel)
         {
-            _destinationSetter.target = _model.GetNextTarget();
-            _isPatrolling = true;
-            _patrolPath.TargetReached += OnTargetReached;
-        }
+            _enemyModel = enemyModel ?? throw new ArgumentNullException(nameof(enemyModel));
+            _model = patrolAIModel ?? throw new ArgumentNullException(nameof(patrolAIModel));
 
-        public void DeInit()
-        {
-            _patrolPath.TargetReached -= OnTargetReached;
+            _view = _enemyModel.EnemyComponents.EnemyView;
+            _destinationSetter = _enemyModel.EnemyComponents.AIConfig.AIDestinationSetter;
+            _patrolPath = _enemyModel.EnemyComponents.AIConfig.AIPatrolPath;
         }
 
         private void OnTargetReached(object sender, EventArgs e)
         {
-            _destinationSetter.target = _isPatrolling ? _model.GetNextTarget() :
-                                        _model.GetClosestTarget(_view.transform.position);  // вероятно тут игрок
+
+            //В настоящий момент, этого не происходит. Потому что, нет движения у Enemy
+            //А вот почему нет движения, не понимаю
+            Debug.Log($"Проерка OnTargetReached {sender}");
+            Debug.Log($"Проерка Initialize {this}");
+
+            _destinationSetter.target = _isPatrolling 
+                                    ? _model.GetNextTarget() 
+                                    : _model.GetClosestTarget(_view.transform.position);
         }
-
-
 
         public void FinishProtection(GameObject gameObject)
         {
@@ -53,6 +51,18 @@ namespace WORLDGAMEDEVELOPMENT
         {
             _isPatrolling = false;
             _destinationSetter.target = gameObject.transform;
+        }
+
+        public void Initialize()
+        {
+            _destinationSetter.target = _model.GetNextTarget();
+            _isPatrolling = true;
+            _patrolPath.TargetReached += OnTargetReached;
+        }
+
+        public void Cleanup()
+        {
+            _patrolPath.TargetReached -= OnTargetReached;
         }
     }
 }

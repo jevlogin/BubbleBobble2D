@@ -1,8 +1,5 @@
 using Pathfinding;
 using System;
-using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
 
 
 namespace WORLDGAMEDEVELOPMENT
@@ -15,6 +12,9 @@ namespace WORLDGAMEDEVELOPMENT
         {
             base.OnTargetReached();
             DispathcTargetReached();
+            //Debug.Log($"ѕроверка OnTargetReached in {name}");
+            //≈му станет доступен метод OnTargetReached,
+            //вызов которого происходит тогда, когда достигаетс€ очередна€ точка пути.
         }
 
         private void DispathcTargetReached()

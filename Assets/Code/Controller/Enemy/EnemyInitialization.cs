@@ -43,7 +43,7 @@ namespace WORLDGAMEDEVELOPMENT
                 switch (enemyModel.EnemyStruct.AIStruct.EnemyType)
                 {
                     case EnemyType.Patrol:
-                        enemyModel.EnemyStruct.AIStruct.waypoints =
+                        enemyModel.EnemyStruct.AIStruct.Waypoints =
                             spawnModel.SpawnComponents.SpawnViewPatrolLevel.SpawnPointList.ToArray();
                         break;
                     case EnemyType.Stalker:
@@ -52,18 +52,22 @@ namespace WORLDGAMEDEVELOPMENT
                             enemyModel.EnemyComponents.EnemyView.GetOrAddComponent<Seeker>();
                         break;
                     case EnemyType.Protector:
-                        enemyModel.EnemyStruct.AIStruct.waypoints =
+                        enemyModel.EnemyStruct.AIStruct.Waypoints =
                             spawnModel.SpawnComponents.SpawnViewPatrolLevel.SpawnPointList.ToArray();
                         enemyModel.EnemyComponents.AIConfig.ProtectorZoneTrigger =
                             spawnModel.SpawnComponents.SpawnProtectorZoneTrigger;
-                        
+
                         //TODO - refactoring
-                        enemyModel.EnemyComponents.EnemyView.GetOrAddComponent<AIDestinationSetter>();
-                        var path = enemyModel.EnemyComponents.EnemyView.GetOrAddComponent<AIPatrolPath>();
+                        var path = enemyModel.EnemyComponents.AIConfig.AIPatrolPath 
+                            = enemyModel.EnemyComponents.EnemyView.GetOrAddComponent<AIPatrolPath>();
                         path.orientation = OrientationMode.YAxisForward;
                         path.enableRotation = false;
                         path.maxSpeed = enemyModel.EnemyStruct.Speed;
 
+                        var setter = enemyModel.EnemyComponents.AIConfig.AIDestinationSetter 
+                            = enemyModel.EnemyComponents.EnemyView.GetOrAddComponent<AIDestinationSetter>();
+                        setter.enabled= false;
+                        setter.enabled= true;
                         break;
                     default:
                         break;

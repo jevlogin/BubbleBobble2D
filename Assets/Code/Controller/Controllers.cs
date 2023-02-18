@@ -1,8 +1,9 @@
 ﻿using System.Collections.Generic;
 
+
 namespace WORLDGAMEDEVELOPMENT
 {
-    internal class Controllers : IInitialization, IExecute, IFixedExecute, ICleanup, ILateExecute
+    public sealed class Controllers : IInitialization, IExecute, IFixedExecute, ICleanup, ILateExecute
     {
 
         #region Fields

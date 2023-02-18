@@ -102,7 +102,10 @@ namespace WORLDGAMEDEVELOPMENT
 
             #region AI
 
-            var AIController = new AIController(enemyInitialization.EnemyModels, spawnInitialization.SpawnModel.SpawnComponents);
+
+            //TODO - заменить все на AIPath
+            var AIController = new AIController(enemyInitialization.EnemyModels, 
+                            spawnInitialization.SpawnModel.SpawnComponents, _controllers);
 
             #endregion
 
@@ -133,6 +136,11 @@ namespace WORLDGAMEDEVELOPMENT
 
 
         #region UnityMethods
+
+        private void Start()
+        {
+            _controllers.Initialize();
+        }
 
         private void Update()
         {

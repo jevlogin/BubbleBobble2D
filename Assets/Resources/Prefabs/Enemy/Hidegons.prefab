@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 3510249670938674407}
   - component: {fileID: 260509646231254310}
   - component: {fileID: 1970292815926952209}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Hidegons
   m_TagString: Untagged
   m_Icon: {fileID: 0}
