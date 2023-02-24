@@ -10,6 +10,9 @@ namespace WORLDGAMEDEVELOPMENT
     {
         [SerializeField] private Camera _camera;
         [SerializeField] private PlayerView _playerView;
+        [SerializeField] private GenerateLevelView _generateLevelView;
+
+        private GeneratorLevelController _generatorLevelController;
         private SpriteAnimatorController _playerAnimator;
         private PlayerController _playerController;
         private TurretController _turretController;
@@ -36,6 +39,8 @@ namespace WORLDGAMEDEVELOPMENT
 
             #endregion
 
+            _generatorLevelController = new GeneratorLevelController(_generateLevelView);
+            _controllers.Add(_generatorLevelController);
 
             #region Player
 
@@ -131,6 +136,8 @@ namespace WORLDGAMEDEVELOPMENT
             var presentInitialization = new PresentInitialization(presentFactory);
 
             #endregion
+
+            _controllers.Awake();
         }
 
 

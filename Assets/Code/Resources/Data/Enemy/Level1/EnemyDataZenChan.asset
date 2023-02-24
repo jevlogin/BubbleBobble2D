@@ -32,4 +32,4 @@ MonoBehaviour:
       Seeker: {fileID: 0}
   EnemySettings:
     SpriteAnimatorConfig: {fileID: 11400000, guid: 247e40933074da241a7b3712bea0613e, type: 2}
-    CountEnemyToLevel: 1
+    CountEnemyToLevel: 50

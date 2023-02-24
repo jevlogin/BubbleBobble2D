@@ -3,7 +3,7 @@
 
 namespace WORLDGAMEDEVELOPMENT
 {
-    public sealed class Controllers : IInitialization, IExecute, IFixedExecute, ICleanup, ILateExecute
+    public sealed class Controllers : IInitialization, IExecute, IFixedExecute, ICleanup, ILateExecute, IAwake
     {
 
         #region Fields
@@ -13,6 +13,7 @@ namespace WORLDGAMEDEVELOPMENT
         private readonly List<ILateExecute> _lateControllers;
         private readonly List<IFixedExecute> _fixedControllers;
         private readonly List<ICleanup> _cleanupControllers;
+        private readonly List<IAwake> _awakeControllers;
 
         #endregion
 
@@ -26,6 +27,7 @@ namespace WORLDGAMEDEVELOPMENT
             _lateControllers = new List<ILateExecute>();
             _fixedControllers = new List<IFixedExecute>();
             _cleanupControllers = new List<ICleanup>();
+            _awakeControllers = new List<IAwake>();
         }
 
         #endregion
@@ -52,6 +54,10 @@ namespace WORLDGAMEDEVELOPMENT
             if (controller is ILateExecute lateExecute)
             {
                 _lateControllers.Add(lateExecute);
+            }
+            if (controller is IAwake awake)
+            {
+                _awakeControllers.Add(awake);
             }
             return this;
         }
@@ -95,6 +101,14 @@ namespace WORLDGAMEDEVELOPMENT
             for (int index = 0; index < _cleanupControllers.Count; index++)
             {
                 _cleanupControllers[index].Cleanup();
+            }
+        }
+
+        public void Awake()
+        {
+            for (int index = 0; index < _awakeControllers.Count; index++)
+            {
+                _awakeControllers[index].Awake();
             }
         }
     }
