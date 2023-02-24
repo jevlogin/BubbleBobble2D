@@ -26,7 +26,10 @@ namespace WORLDGAMEDEVELOPMENT
             var enemyModelPatrol = _enemyModels.FirstOrDefault(m => m.EnemyStruct.AIStruct.EnemyType == EnemyType.Patrol);
             var enemyModelProtector= _enemyModels.FirstOrDefault(m => m.EnemyStruct.AIStruct.EnemyType == EnemyType.Protector);
 
-            var _simplePatrolAI = new SimplePatrolAI(new SimplePatrolAIModel(enemyModelPatrol));
+            var contactPolerSimplePatrolAI = new ContactsPoller(enemyModelPatrol.EnemyComponents.CircleCollider2D);
+            _controllers.Add(contactPolerSimplePatrolAI);
+
+            var _simplePatrolAI = new SimplePatrolAI(new SimplePatrolAIModel(enemyModelPatrol), contactPolerSimplePatrolAI);
             _controllers.Add(_simplePatrolAI);
 
             var protectorAI = new ProtectorAI(enemyModelProtector, 

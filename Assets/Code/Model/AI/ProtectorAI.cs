@@ -30,12 +30,6 @@ namespace WORLDGAMEDEVELOPMENT
 
         private void OnTargetReached(object sender, EventArgs e)
         {
-
-            //В настоящий момент, этого не происходит. Потому что, нет движения у Enemy
-            //А вот почему нет движения, не понимаю
-            Debug.Log($"Проерка OnTargetReached {sender}");
-            Debug.Log($"Проерка Initialize {this}");
-
             _destinationSetter.target = _isPatrolling 
                                     ? _model.GetNextTarget() 
                                     : _model.GetClosestTarget(_view.transform.position);

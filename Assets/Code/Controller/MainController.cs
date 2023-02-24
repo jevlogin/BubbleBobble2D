@@ -103,7 +103,6 @@ namespace WORLDGAMEDEVELOPMENT
             #region AI
 
 
-            //TODO - заменить все на AIPath
             var AIController = new AIController(enemyInitialization.EnemyModels, 
                             spawnInitialization.SpawnModel.SpawnComponents, _controllers);
 

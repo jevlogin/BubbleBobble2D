@@ -47,7 +47,6 @@ namespace WORLDGAMEDEVELOPMENT
                             spawnModel.SpawnComponents.SpawnViewPatrolLevel.SpawnPointList.ToArray();
                         break;
                     case EnemyType.Stalker:
-                        //TODO - set player, to target
                         enemyModel.EnemyComponents.AIConfig.Seeker =
                             enemyModel.EnemyComponents.EnemyView.GetOrAddComponent<Seeker>();
                         break;
@@ -57,7 +56,6 @@ namespace WORLDGAMEDEVELOPMENT
                         enemyModel.EnemyComponents.AIConfig.ProtectorZoneTrigger =
                             spawnModel.SpawnComponents.SpawnProtectorZoneTrigger;
 
-                        //TODO - refactoring
                         var path = enemyModel.EnemyComponents.AIConfig.AIPatrolPath 
                             = enemyModel.EnemyComponents.EnemyView.GetOrAddComponent<AIPatrolPath>();
                         path.orientation = OrientationMode.YAxisForward;

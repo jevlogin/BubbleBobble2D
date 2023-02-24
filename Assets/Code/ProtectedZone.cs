@@ -1,7 +1,5 @@
 using System;
-using System.Collections;
 using System.Collections.Generic;
-using Unity.VisualScripting;
 using UnityEngine;
 
 
@@ -20,16 +18,12 @@ namespace WORLDGAMEDEVELOPMENT
 
         private void CollisionTriggerExit(object sender, GameObject gameObject)
         {
-            Debug.Log($"Test CollisionTriggerExit {nameof(ProtectedZone)}");
-
             foreach (var protector in _protectors)
                 protector.FinishProtection(gameObject);
         }
 
         private void CollisionTriggerEnter(object sender, GameObject gameObject)
         {
-            Debug.Log($"Test CollisionTriggerEnter {nameof(ProtectedZone)}");
-
             foreach (var protector in _protectors)
                 protector.StartProtection(gameObject);
         }

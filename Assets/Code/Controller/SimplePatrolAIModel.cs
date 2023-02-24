@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using System;
+using UnityEngine;
 
 
 namespace WORLDGAMEDEVELOPMENT
@@ -9,10 +10,12 @@ namespace WORLDGAMEDEVELOPMENT
 
         private Transform _target;
         private int _currentPointIndex;
-
+        private Vector2 _direction = Vector2.zero;
+        private Vector2 _velocity = Vector2.zero;
         private readonly EnemyModel _enemyModel;
 
         public EnemyModel EnemyModel => _enemyModel;
+        public event Action<EnemyState> EnemeStateEvent;
 
         #endregion
 
@@ -25,20 +28,23 @@ namespace WORLDGAMEDEVELOPMENT
             _target = GetNextWayPoint();
         }
 
+
         #endregion
 
 
         #region Methods
 
-        public Vector2 CalculateVelocity(Vector2 fromPosition)
+        public Vector2 CalculateVelocity(Vector2 fromPosition, float fixedDeltaTime)
         {
             var sqrDistance = Vector2.SqrMagnitude((Vector2)_target.position - fromPosition);
             if (sqrDistance <= _enemyModel.EnemyStruct.AIStruct.MinSqrDistanceToTarget)
+            {
                 _target = GetNextWayPoint();
-
-            var direction = ((Vector2)_target.position - fromPosition).normalized;
-            var velocity = direction * _enemyModel.EnemyStruct.Speed;
-            return velocity;
+                EnemeStateEvent?.Invoke(EnemyState.Iddle);
+            }
+            _direction = ((Vector2)_target.position - fromPosition).normalized;
+            _velocity = _direction * _enemyModel.EnemyStruct.Speed * fixedDeltaTime;
+            return _velocity;
         }
 
 
