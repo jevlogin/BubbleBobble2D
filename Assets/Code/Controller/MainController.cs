@@ -8,20 +8,23 @@ namespace WORLDGAMEDEVELOPMENT
 {
     public sealed class MainController : MonoBehaviour, IDisposable
     {
+        #region Fields
+        
         [SerializeField] private Camera _camera;
         [SerializeField] private PlayerView _playerView;
         [SerializeField] private GenerateLevelView _generateLevelView;
+        [SerializeField] private string _dataPath; 
 
         private GeneratorLevelController _generatorLevelController;
         private SpriteAnimatorController _playerAnimator;
         private PlayerController _playerController;
         private TurretController _turretController;
         private GunBulletShooterController _gunBulletShooterController;
-
         private Controllers _controllers;
-
         private Data _data;
-        [SerializeField] private string _dataPath;
+
+        #endregion
+
 
         private void Awake()
         {
@@ -41,6 +44,8 @@ namespace WORLDGAMEDEVELOPMENT
 
             _generatorLevelController = new GeneratorLevelController(_generateLevelView);
             _controllers.Add(_generatorLevelController);
+
+
 
             #region Player
 
@@ -136,6 +141,7 @@ namespace WORLDGAMEDEVELOPMENT
             var presentInitialization = new PresentInitialization(presentFactory);
 
             #endregion
+
 
             _controllers.Awake();
         }

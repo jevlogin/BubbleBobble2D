@@ -17,6 +17,7 @@ namespace WORLDGAMEDEVELOPMENT
         private int _randomFillPrecent;
 
         private int[,] _map;
+        private MarschingSquaresGeneratorLevelController _marschingSquaresGeneratorLevel;
 
         public GeneratorLevelController(GenerateLevelView levelView)
         {
@@ -28,16 +29,21 @@ namespace WORLDGAMEDEVELOPMENT
             _randomFillPrecent = levelView.RandomFillPrecent;
 
             _map = new int[_widthMap, _heightMap];
+
+            _marschingSquaresGeneratorLevel = new MarschingSquaresGeneratorLevelController();
+
         }
 
         private void GenerateLevel()
         {
             RandomFillLevel();
             for (var i = 0; i < _factorSmooth; i++)
-            {
                 SmoothMap();
-            }
-            DrawTilesOnMap();
+
+            _marschingSquaresGeneratorLevel.GenerateGrid(_map, 1);
+            _marschingSquaresGeneratorLevel.DrawTilesOnMap(_tileMapGround, _tileGround);
+
+            //DrawTilesOnMap();
         }
 
         private void DrawTilesOnMap()
